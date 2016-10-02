@@ -2,9 +2,11 @@
 
 namespace Mango\Model;
 
-class Users{
+class Users
+{
 
-  public function __construct(){
+  public function __construct()
+  {
     echo "Users";
   }
 }

@@ -12,11 +12,11 @@ class Register extends Controller
   }
 
   public function index($extraRequest){
-    $valid = validatePathDepth($extraRequest);
+    $valid = $this->validatePathDepth($extraRequest, "index");
 
     if($valid){
-      echo "data";
-
+      echo "View not set";
+      $this->view("Register");
 
     }else{
       //echo 404
@@ -25,8 +25,12 @@ class Register extends Controller
 
   }
 
+  public function newOne(){
+    echo "oops";
+  }
 
-  public validatePathDepth($extraPath, $method){
+
+  public function validatePathDepth($extraPath, $method){
     $maxDepth = ['index' => 1, 'new' => 0];
 
     $validity = (count($extraPath) <= $maxDepth[$method]) ? true : false;

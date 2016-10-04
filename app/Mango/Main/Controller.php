@@ -16,7 +16,7 @@ class Controller
 
     if(file_exists("../app/Mango/Model/$model")){
 
-      require_once "../app/Mango/Controller/".$model.".php";
+      require_once "../app/Mango/Model/".$model.".php";
 
       $model = new $model();
 
@@ -28,7 +28,7 @@ class Controller
   public function view($view, $data = []){
     if(file_exists("../app/Mango/View/$view")){
 
-      require_once "../app/Mango/Controller/".$view.".php";
+      require_once "../app/Mango/View/".$view.".php";
 
       $view = new $view();
 

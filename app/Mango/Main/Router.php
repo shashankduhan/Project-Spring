@@ -17,7 +17,7 @@ class Router
   public function __construct()
   {
     $url = $this->parseUrl();
-    $this->forwardController($url);
+    $this->frontController($url);
 
   }
 
@@ -50,7 +50,7 @@ class Router
   //*****************************
 
 
-  public function forwardController($pathDepth = [])
+  public function frontController($pathDepth = [])
   {
 
     $indexCall = (count($pathDepth) > 0 ? false : true);
@@ -79,14 +79,12 @@ class Router
                   echo "include(welcome.php)";
                 }else{
                   //Exception.......
-                  echo "Exception: Something went wrong, File not found!";
-                  exit();
+                  throw new ErrorException('File not Found.');
                 }
                 break;
           case false:
                 //Exception.......
-                echo "Exception: Something went wrong, files not found!";
-                exit();
+                throw new ErrorException('File not Found.');
                 break;
 
       }
@@ -98,13 +96,18 @@ class Router
 
     $this->controller = new $this->controller();
 
-    if(count($pathDepth) > 0){
-      $method = $pathDepth[2];
+    if(count($pathDepth) == 1){
+      $this->method = $pathDepth[2];
+    }else if(count($pathDepth) > 1){
+      throw new ErrorException('File not Found.');
     }
 
     //Check if method exists:
-    if(method_exists($this->controller, $method)){
-
+    if(method_exists($this->controller, $this->method)){
+      call_user_func(array($this->controller, $this->method), $pathDepth);
+    }else{
+      //Method not found
+      throw new ErrorException('File not Found.');
     }
 
 

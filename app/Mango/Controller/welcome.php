@@ -1,12 +1,12 @@
 <?php
 
-namespace Mango\Controller;
+use Mango\Main\Controller as Controller;
 
 class Welcome extends Controller
 {
 
   public function __construct(){
-
+    parent::__construct();
 
   }
 

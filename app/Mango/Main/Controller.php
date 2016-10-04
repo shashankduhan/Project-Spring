@@ -8,28 +8,30 @@ class Controller
   public function __construct()
   {
     session_start();
-    if(isset($_SESSION['uid'])) ? $loginStatus = true : $loginStatus = false;
-
+    $loginStatus = isset($_SESSION['uid']) ? true : false;
   }
 
 
   public function model($model = ""){
 
-    if(file_exists("../Model/$model")){
+    if(file_exists("../app/Mango/Model/$model")){
 
-      use Mango\Model\{$model} as {$model};
+      require_once "../app/Mango/Controller/".$model.".php";
 
-      return new {$model};
+      $model = new $model();
+
+      return $model;
     }
 
   }
 
   public function view($view, $data = []){
-    if(file_exists("../view/$view")){
+    if(file_exists("../app/Mango/View/$view")){
 
-      use Mango\View\{$view} as {$view};
+      require_once "../app/Mango/Controller/".$view.".php";
 
-      return new {$model}($data);
+      $view = new $view();
+
     }
 
   }

@@ -2,6 +2,7 @@
 
 namespace Mango\Main;
 
+
 //This is our main Application function that handles all front controller routing
 class Router
 {
@@ -55,12 +56,17 @@ class Router
     $indexCall = (count($pathDepth) > 0 ? false : true);
     $indexExists = file_exists("../app/Mango/Controller/welcome.php") ? true : false;
 
+    //Lets make requests case resistant
+    $this->controller = ucfirst(strtolower($this->controller));
 
     if(!$indexCall){
       $this->controller = $pathDepth[1];
     }
 
+    //Check if file ans class exists
     $controllerExists = file_exists("../app/Mango/Controller/".$this->controller.".php") ? true : false;
+    //$ctrlClassExist = class_exists($this->controller) ? true : false;
+    //echo "-".$controllerExists." - ".$ctrlClassExist."-";
 
     if($controllerExists){
       if(!$indexCall){
@@ -86,7 +92,20 @@ class Router
       }
     }
 
-    var_dump($pathDepth);
+
+    //Add our required controller class
+    require_once "../app/Mango/Controller/".$this->controller.".php";
+
+    $this->controller = new $this->controller();
+
+    if(count($pathDepth) > 0){
+      $method = $pathDepth[2];
+    }
+
+    //Check if method exists:
+    if(method_exists($this->controller, $method)){
+
+    }
 
 
 

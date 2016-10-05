@@ -92,6 +92,7 @@ class Router
 
 
     //Add our required controller class
+    //Already checked if exists or not
     require_once "../app/Mango/Controller/".$this->controller.".php";
 
     $this->controller = new $this->controller();

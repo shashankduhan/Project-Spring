@@ -8,10 +8,10 @@
     <p>
       Register
     </p>
-    <form class="" action="/register/newOne" method="post">
+    <form class="" action="/register/go" method="post">
       <input type="text" name="email" value="" placeholder="Email"><br>
       <input type="text" name="password" value="" placeholder="Password"><br>
-      <input type="submit" name="name" value="Submit">
+      <input type="submit" name="Register" value="Register">
     </form>
   </body>
 </html>

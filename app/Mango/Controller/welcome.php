@@ -16,17 +16,17 @@ class Welcome extends Controller
 
   public function index(){
 
-    if(loginStatus){
+    if($this->loginStatus){
       $mName = 'dashboard';
       $model = $this->model($nName);
       $dataModel = $model->getData();
     }else{
-      $nName = 'index';
+      $mName = 'index';
       $dataModel = [];
     }
 
-    $this->view(mName, $dataModel);
-
+    $this->view($mName, $dataModel);
+    var_dump($this->loginStatus);
   }
 
 }

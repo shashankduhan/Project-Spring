@@ -2,8 +2,7 @@
   "autoload":
   {
     "psr-4" : {
-      "Mango\\" : "app/Mango",
-      "intrface\\" : "app/intrface"
+      "Mango\\" : "app/Mango"
     }
   }
 

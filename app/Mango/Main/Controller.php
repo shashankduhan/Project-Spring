@@ -1,5 +1,8 @@
 <?php namespace Mango\Main;
 
+use Mango\Model\Connection as Connection;
+use Mango\Main\ErrorException as ErrorException;
+
 class Controller
 {
 
@@ -12,19 +15,6 @@ class Controller
     $this->loginStatus = isset($_SESSION['userId']) ? true : false;
   }
 
-
-  public function model($model = ""){
-
-    if(file_exists("../app/Mango/Model/$model")){
-
-      require_once "../app/Mango/Model/".$model.".php";
-
-      $model = new $model();
-
-      return $model;
-    }
-
-  }
 
   public function view($view, $data = []){
     if(file_exists("../app/Mango/View/$view.php")){
@@ -49,6 +39,6 @@ class Controller
 
   public function __destruct()
   {
-    
+
   }
 }

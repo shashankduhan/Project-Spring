@@ -5,10 +5,15 @@ namespace Mango\Model;
 class Model
 {
 
+  public $rowCount;
 
-  public function fetch($query){
+  public function fetch($dbRef, $query){
 
-    $result = $this->dbRef->query($query);
+    if($result = $dbRef->query($query)){
+      $this->rowCount = $result->num_rows;
+    }else{
+      throw new ErrorException('Something wrong happened.');
+    }
 
     $table = Array();
     $n = 0;

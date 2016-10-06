@@ -1,6 +1,9 @@
 <?php
 
 use Mango\Main\Controller as Controller;
+use Mango\Model\UserInfo as UserInfo;
+use Mango\Model\Connection as Connection;
+use Mango\Main\ErrorException as ErrorException;
 
 class Welcome extends Controller
 {
@@ -18,15 +21,15 @@ class Welcome extends Controller
 
     if($this->loginStatus){
       $mName = 'dashboard';
-      $model = $this->model($nName);
-      $dataModel = $model->getData();
+      $this->dbRef = new Connection();
+      $model  = new UserInfo($this->dbRef->dbRef);
+      $dataModel = $model->userData;
     }else{
       $mName = 'index';
       $dataModel = [];
     }
 
     $this->view($mName, $dataModel);
-    var_dump($this->loginStatus);
   }
 
 }

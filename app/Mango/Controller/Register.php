@@ -4,6 +4,7 @@
 use Mango\Main\Controller as Controller;
 use Mango\Model\Connection as Connection;
 use Mango\Model\Register as Registration;
+use Mango\Main\ErrorException as ErrorException;
 
 class Register extends Controller
 {
@@ -15,11 +16,17 @@ class Register extends Controller
 
   public function index($extraRequest){
     $valid = $this->validatePathDepth($extraRequest, "index");
-    if($valid){
+    if($valid && !$this->loginStatus){
       $this->view("Register");
 
     }else{
-      throw new ErrorException("File Not Found");
+      if($this->loginStatus)
+      {
+        header("Location: .");
+      }else
+      {
+        throw new ErrorException("File Not Found");
+      }
     }
 
   }
@@ -27,7 +34,7 @@ class Register extends Controller
   public function go($extraRequest){
     $valid = $this->validatePathDepth($extraRequest, "index");
 
-    if($valid){
+    if($valid && !$this->loginStatus){
 
       $this->dbRef = new Connection();
       $registeration = new Registration($this->dbRef->dbRef);
@@ -36,8 +43,8 @@ class Register extends Controller
         //User registered..
         $_SESSION['userId'] = $newUserId;
         $this->loginStatus = true;
-        echo "Welcome ".$_POST['email']." UID: ".$_SESSION['userId'];
-        //Only send json data with result_status & userid
+        $result = "{status : 1, userId : $_SESSION[userId]}";
+        $this->view("raw", $result);
 
       }else{
         throw new ErrorException("Something wrong happened.");

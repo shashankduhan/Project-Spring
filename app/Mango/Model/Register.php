@@ -10,10 +10,11 @@ class Register extends Model{
   public function __construct($dbRef){
     $this->dbRef = $dbRef;
     $email = $_POST['email'];
+    $name = $_POST['name'];
     //Hash password to make it secure
     $password = $_POST['password'];
 
-    $query = "INSERT INTO `users` VALUES (NULL, NULL,'$password', '$email')";
+    $query = "INSERT INTO `users` VALUES (NULL, '$name', '$password', '$email')";
 
     $result = $this->set($dbRef, $query);
     if($result){

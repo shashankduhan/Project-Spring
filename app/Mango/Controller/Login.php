@@ -17,11 +17,17 @@ class Login extends Controller
   public function index($extraRequest){
     $valid = $this->validatePathDepth($extraRequest, "index");
 
-    if($valid){
+    if($valid && !$this->loginStatus){
       $this->view("Login");
 
     }else{
-      throw new ErrorException("File Not Found");
+      if($this->loginStatus)
+      {
+        header("Location: .");
+      }else
+      {
+        throw new ErrorException("File Not Found");
+      }
     }
   }
 
@@ -45,7 +51,14 @@ class Login extends Controller
       $this->view('raw', $result);
 
     }else{
-      throw new ErrorException("File Not Found");
+
+      if($this->loginStatus)
+      {
+        header("Location: /");
+      }else
+      {
+        throw new ErrorException("File Not Found");
+      }
     }
 
   }

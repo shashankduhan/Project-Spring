@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Login</title>
+    <link rel="stylesheet" href="/index/repo/master.css" type="text/css">
     <script src="/index/repo/library.js" charset="utf-8"></script>
     <script type="text/javascript">
 
@@ -48,7 +49,7 @@
 
     </script>
   </head>
-  <body>
+  <body align="center">
   <p>
     Login
   </p>

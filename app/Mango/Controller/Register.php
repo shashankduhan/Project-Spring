@@ -51,7 +51,13 @@ class Register extends Controller
       }
 
     }else{
-      throw new ErrorException("File Not Found");
+      if($this->loginStatus)
+      {
+        header("Location: /");
+      }else
+      {
+        throw new ErrorException("File Not Found");
+      }
     }
   }
 

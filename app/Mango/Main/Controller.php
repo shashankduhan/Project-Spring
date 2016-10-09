@@ -6,13 +6,31 @@ use Mango\Main\ErrorException as ErrorException;
 class Controller
 {
 
-  protected $loginStatus;
+  protected $loginStatus = false;
   protected $dbRef;
+  protected $cookieLifetime = 8000*3600;
 
   public function __construct()
   {
     session_start();
     $this->loginStatus = isset($_SESSION['userId']) ? true : false;
+
+
+    if(isset($_COOKIE['userid']) && !$this->loginStatus){
+      //This functionality seems correct but not working properly..
+      //Please give me review what wrong I am doing.
+      //Uncomment it to see persistence
+
+      $_SESSION['userId'] == $_COOKIE['userid'];
+      $this->loginStatus = true;
+
+
+      //
+    }
+
+
+
+
   }
 
 

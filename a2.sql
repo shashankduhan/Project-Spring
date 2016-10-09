@@ -53,8 +53,9 @@ CREATE TABLE `user_accounts` (
   `typeid` int(11) NOT NULL,
   `balance` float DEFAULT NULL,
   `status` int(11) NOT NULL DEFAULT '1',
+  `created_on` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -63,7 +64,7 @@ CREATE TABLE `user_accounts` (
 
 LOCK TABLES `user_accounts` WRITE;
 /*!40000 ALTER TABLE `user_accounts` DISABLE KEYS */;
-INSERT INTO `user_accounts` VALUES (1,1,2,NULL,1),(2,1,1,NULL,1),(3,2,1,NULL,1),(4,29,2,100,1);
+INSERT INTO `user_accounts` VALUES (1,1,2,NULL,1,0);
 /*!40000 ALTER TABLE `user_accounts` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -79,10 +80,11 @@ CREATE TABLE `users` (
   `name` varchar(100) DEFAULT NULL,
   `password` char(100) NOT NULL,
   `email` char(100) NOT NULL,
+  `added_on` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -91,7 +93,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,NULL,'themilky','milkyduhan@gmail.com'),(2,NULL,'fhfjfhfjfj','gdgd@fhfgh.com'),(3,NULL,'fhfjfhfjfj','gdgd@fhfh.com'),(4,NULL,'sdsdsds','asasasdas'),(5,NULL,'sdsfsfsf','hello@mango.com'),(6,NULL,'nothing','test@tester.com'),(7,NULL,'nothing','test2@tester.com'),(8,NULL,'sasas','test3@tester.com'),(14,NULL,'adada','sd@adad.ada'),(15,NULL,'sdsdsd','sd@sda.ada'),(19,NULL,'asasasas','milky@gna.sd'),(20,'Shashank Duhan','sdsdsdsd','milkasj@adas.sds'),(21,'SHashnak','adadadad','asj@akd.a'),(22,'','aasasasas','angella@gmail.com'),(23,'','asasasa','akshak@khjka.as'),(24,'','adadad','KAJ@kj.as'),(25,'SHahsank','sdadadad','asa@khk.as'),(26,'Vicky','asasasas','	vics@sd.cd'),(27,'Naveen Kolambage','1234','naveen@mango.com'),(28,'','',''),(29,'Gaurav','1234','gov@mangi.com');
+INSERT INTO `users` VALUES (1,NULL,'themilky','milkyduhan@gmail.com',0));
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -104,4 +106,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-10-09 14:33:18
+-- Dump completed on 2016-10-09 20:55:30

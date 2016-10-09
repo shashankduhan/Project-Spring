@@ -61,7 +61,7 @@ class Register extends Controller
       $_POST['name'] = htmlspecialchars($_POST['name'], ENT_QUOTES);
       $_POST['email'] = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
       $_POST['password'] = htmlspecialchars($_POST['password'], ENT_QUOTES);
-      
+
 
       $this->dbRef = new Connection();
       $registeration = new Registration($this->dbRef->dbRef);
@@ -71,6 +71,7 @@ class Register extends Controller
         //User registered..
         $_SESSION['userId'] = $newUserId;
         $this->loginStatus = true;
+        setcookie("userid",$newUserId,time()+(80*3600), "./");
         $result = "{status : 1, userId : $_SESSION[userId]}";
         $this->view("raw", $result);
 

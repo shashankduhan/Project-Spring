@@ -62,6 +62,7 @@ class Login extends Controller
       {
         $_SESSION['userId'] = $userId;
         $this->loginStatus = true;
+        setcookie("userId",$userId,time()+(80*3600), "./");
         $result = "{ status : 1 , userId : $userId}";
       }else
       {

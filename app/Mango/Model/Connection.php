@@ -8,8 +8,8 @@ class Connection
   public function __construct()
   {
     $hostname = "localhost";
-    $user = "root";
-    $pass = "root";
+    $user = "a2";
+    $pass = "a2";
     $db = "a2";
     $port = 3306;
     mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);

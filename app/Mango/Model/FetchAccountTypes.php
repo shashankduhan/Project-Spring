@@ -8,7 +8,8 @@ class FetchAccountTypes extends Model
   public $accountTypes;
   public $noOfTypes;
 
-  public function __construct($dbRef){
+  public function __construct($dbRef)
+  {
 
     $uid = $_SESSION['userId'];
 

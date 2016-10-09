@@ -27,13 +27,13 @@
         if(r.status && r.userId){
           window.location  = ".";
         }else{
-          alert("Sorry something went wrong!!");
-          hidde('indicator');
-          showw('register');
+          alert("Invalid Credentials");
+          hidee('indicator');
+          showw('login');
         }
 
       }, onCreate : function(){
-        hidee('register');
+        hidee('login');
         showw('indicator');
       }});
     }
@@ -56,7 +56,8 @@
   <form class="" action="/login/go" method="post" id="registrationForm">
     <input type="email" name="email" value="" placeholder="Email" id="email"><br>
     <input type="password" name="password" value="" placeholder="Password" id="password"><br>
-    <input type="submit" name="login" value="Login">
+    <input type="submit" name="login" value="Login" id="login">
+    <label id="indicator" style="display:none;">Login you in.....</label>
   </form>
   </body>
 </html>

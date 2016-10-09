@@ -27,7 +27,14 @@
           if(r.status && r.userId){
             window.location  = ".";
           }else{
-            alert("Sorry something went wrong!!");
+            if(r.status == -1)
+            {
+              alert("Invalid Email address");
+            }else
+            {
+              alert("Sorry something went wrong!!");
+            }
+
             hidee('indicator');
             showw('register');
           }

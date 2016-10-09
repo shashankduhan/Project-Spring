@@ -28,7 +28,8 @@ class Router
   //*****************************
 
 
-  public function parseUrl(){
+  public function parseUrl()
+  {
 
     //Parse our url and split the requests
     $url = filter_var("http://$this->hostname".$_SERVER["REQUEST_URI"], FILTER_SANITIZE_URL);
@@ -68,16 +69,22 @@ class Router
     //$ctrlClassExist = class_exists($this->controller) ? true : false;
     //echo "-".$controllerExists." - ".$ctrlClassExist."-";
 
-    if($controllerExists){
-      if(!$indexCall){
+    if($controllerExists)
+    {
+      if(!$indexCall)
+      {
         unset($pathDepth[1]);
       }
-    }else{
-      switch($indexCall){
+    }else
+    {
+      switch($indexCall)
+      {
           case true:
-                if($indexExists){
+                if($indexExists)
+                {
                   echo "include(welcome.php)";
-                }else{
+                }else
+                {
                   //Exception.......
                   throw new ErrorException('File not Found.');
                 }
@@ -97,15 +104,18 @@ class Router
 
     $this->controller = new $this->controller();
 
-    if(count($pathDepth) == 1){
+    if(count($pathDepth) == 1)
+    {
       $this->method = $pathDepth[2];
       unset($pathDepth[2]);
     }
 
     //Check if method exists:
-    if(method_exists($this->controller, $this->method)){
+    if(method_exists($this->controller, $this->method))
+    {
       call_user_func(array($this->controller, $this->method), $pathDepth);
-    }else{
+    }else
+    {
       //Method not found
       throw new ErrorException('File not Found.');
     }
@@ -118,7 +128,8 @@ class Router
   //   Result Callback
   //*****************************
 
-  public function getResult(){
+  public function getResult()
+  {
     return $this->result;
   }
 

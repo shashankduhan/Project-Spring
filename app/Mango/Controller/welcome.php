@@ -8,23 +8,28 @@ use Mango\Main\ErrorException as ErrorException;
 class Welcome extends Controller
 {
 
-  public function __construct(){
+  public function __construct()
+  {
     parent::__construct();
 
   }
 
-  public function accounts(){
+  public function accounts()
+  {
 
   }
 
-  public function index(){
+  public function index()
+  {
 
-    if($this->loginStatus){
+    if($this->loginStatus)
+    {
       $mName = 'dashboard';
       $this->dbRef = new Connection();
       $model  = new UserInfo($this->dbRef->dbRef);
       $dataModel = $model->userData;
-    }else{
+    }else
+    {
       $mName = 'index';
       $dataModel = [];
     }

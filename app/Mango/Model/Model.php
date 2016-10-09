@@ -7,17 +7,21 @@ class Model
 
   public $rowCount;
 
-  public function fetch($dbRef, $query){
+  public function fetch($dbRef, $query)
+  {
 
-    if($result = $dbRef->query($query)){
+    if($result = $dbRef->query($query))
+    {
       $this->rowCount = $result->num_rows;
-    }else{
+    }else
+    {
       throw new ErrorException('Something wrong happened.');
     }
 
     $table = Array();
     $n = 0;
-    while($row = $result->fetch_assoc()){
+    while($row = $result->fetch_assoc())
+    {
       $table[$n] = $row;
       ++$n;
     }
@@ -25,10 +29,13 @@ class Model
 
   }
 
-  public function set($dbRef, $query){
-    if($dbRef->query($query)){
+  public function set($dbRef, $query)
+  {
+    if($dbRef->query($query))
+    {
       $result = true;
-    }else{
+    }else
+    {
       $result = false;
     }
 

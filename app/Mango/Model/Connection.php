@@ -5,7 +5,8 @@ namespace Mango\Model;
 class Connection
 {
   public $dbRef;
-  public function __construct(){
+  public function __construct()
+  {
     $hostname = "localhost";
     $user = "root";
     $pass = "root";
@@ -30,7 +31,8 @@ class Connection
     }
   }
 
-  public function __destruct(){
+  public function __destruct()
+  {
     $this->dbRef->close();
 
   }

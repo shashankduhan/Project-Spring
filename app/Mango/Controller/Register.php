@@ -48,7 +48,7 @@ class Register extends Controller
       $validEmail = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) ? true : false;
     }else
     {
-      $validEmail  false;
+      $validEmail = false;
     }
     //***********************
     //Sanitizing the input...
@@ -61,6 +61,7 @@ class Register extends Controller
       $_POST['name'] = htmlspecialchars($_POST['name'], ENT_QUOTES);
       $_POST['email'] = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
       $_POST['password'] = htmlspecialchars($_POST['password'], ENT_QUOTES);
+      
 
       $this->dbRef = new Connection();
       $registeration = new Registration($this->dbRef->dbRef);

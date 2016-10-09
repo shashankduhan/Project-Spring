@@ -23,7 +23,7 @@ class Login extends Controller
     }else{
       if($this->loginStatus)
       {
-        header("Location: .");
+        header("Location: /");
       }else
       {
         throw new ErrorException("File Not Found");
@@ -33,9 +33,21 @@ class Login extends Controller
 
   public function go($extraRequest){
 
-    $valid = $this->validatePathDepth($extraRequest, "index");
+    //Validation of Path requested
+    $valid = $this->validatePathDepth($extraRequest, "go");
 
-    if($valid && !$this->loginStatus){
+    //Dividing the conditions to improve readability
+    $gotParameters = isset($_POST['email']) && isset($_POST['password']) ? true : false;
+
+    //***********************
+    //Sanitizing the input...
+    //***********************
+
+    if($valid && !$this->loginStatus && $gotParameters){
+
+      //Input Sanitization
+      $_POST['email'] = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
+      $_POST['password'] = htmlspecialchars($_POST['password'], ENT_QUOTES);
 
       $this->dbRef = new Connection();
       $login = new Logger($this->dbRef->dbRef);

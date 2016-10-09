@@ -49,6 +49,11 @@ function x(x){var elements = new Array();
 
 	return elements;
 }
+
+function sleep (time) {
+  return new Promise((resolve) => setTimeout(resolve, time));
+}
+
 function hidee(x){document.getElementById(x).style.display='none';}
 function showw(x){document.getElementById(x).style.display='inline-block';}
 function showwb(x){document.getElementById(x).style.display='block';}

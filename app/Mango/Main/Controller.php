@@ -29,9 +29,9 @@ class Controller
   }
 
   public function validatePathDepth($extraPath, $method){
-    $maxDepth = ['index' => 1, 'go' => 0];
+    $maxDepth = ['index' => 1, 'go' => 0, 'fetch' => 0, 'secondlevel' => 0];
 
-    $validity = (count($extraPath) <= $maxDepth[$method]) ? true : false;
+    $validity = (count($extraPath) <= $maxDepth[$method]) ? 1 : 0;
 
     return $validity;
   }

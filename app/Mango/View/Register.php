@@ -17,6 +17,7 @@
         var param = "email="+email+"&password="+password+"&name="+name;
 
         new ajax.request("/register/go", {method: "POST", parameters: param, onSuccess : function(r){
+          console.log(r);
           try{
              r = eval("("+r+")");
           }catch(e){
@@ -27,7 +28,7 @@
             window.location  = ".";
           }else{
             alert("Sorry something went wrong!!");
-            hidde('indicator');
+            hidee('indicator');
             showw('register');
           }
 
@@ -53,8 +54,8 @@
     </p>
     <form class="" action="/register/go" method="post" id="registrationForm" >
       <input type="text" name="name" value="" placeholder="Full Name" id="name"><br><br>
-      <input type="text" name="email" value="" placeholder="Email" id="email"><br>
-      <input type="text" name="password" value="" placeholder="Password" id="password"><br>
+      <input type="email" name="email" value="" placeholder="Email" id="email"><br>
+      <input type="password" name="password" value="" placeholder="Password" id="password"><br>
       <input type="submit" name="Register" value="Register" id="register">
       <label id="indicator" style="display:none;">Registering...</label>
     </form>

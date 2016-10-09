@@ -99,8 +99,7 @@ class Router
 
     if(count($pathDepth) == 1){
       $this->method = $pathDepth[2];
-    }else if(count($pathDepth) > 1){
-      throw new ErrorException('File not Found.');
+      unset($pathDepth[2]);
     }
 
     //Check if method exists:

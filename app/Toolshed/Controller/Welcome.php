@@ -1,9 +1,9 @@
 <?php
 
-use Mango\Main\Controller as Controller;
-use Mango\Model\UserInfo as UserInfo;
-use Mango\Model\Connection as Connection;
-use Mango\Main\ErrorException as ErrorException;
+use Toolshed\Main\Controller as Controller;
+use Toolshed\Model\UserInfo as UserInfo;
+use Toolshed\Model\Connection as Connection;
+use Toolshed\Main\ErrorException as ErrorException;
 
 class Welcome extends Controller
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Mango\Model;
+namespace Toolshed\Model;
 
 class Connection
 {

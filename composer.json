@@ -2,7 +2,7 @@
   "autoload":
   {
     "psr-4" : {
-      "Mango\\" : "app/Mango"
+      "Toolshed\\" : "app/Toolshed"
     }
   }
 

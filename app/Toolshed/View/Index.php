@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Mango People Bank</title>
+    <title>Toolshed Inc.</title>
     <link rel="stylesheet" href="index/repo/master.css" type="text/css">
     <style text/css>
       p{    text-align: center;
@@ -15,7 +15,7 @@
   </head>
   <body align="center">
     <p>
-      Mango People Bank<br><span style="color:#666;font-size:16px;">First National Bank</span>
+      Toolshed Inc.<br><span style="color:#666;font-size:16px;">We got it all</span>
     </p>
     <a href="/login">Login</a><br>
     <a href="/register">Register</a>

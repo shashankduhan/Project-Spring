@@ -7,30 +7,17 @@ namespace Composer\Autoload;
 class ComposerStaticInitbdaf887cd2bac439364cbfc7411c07c5
 {
     public static $prefixLengthsPsr4 = array (
-        'i' => 
+        'T' => 
         array (
-            'intrface\\' => 9,
-        ),
-        'M' => 
-        array (
-            'Mango\\' => 6,
+            'Toolshed\\' => 9,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'intrface\\' => 
+        'Toolshed\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/app/intrface',
+            0 => __DIR__ . '/../..' . '/app/Toolshed',
         ),
-        'Mango\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/app/Mango',
-        ),
-    );
-
-    public static $classMap = array (
-        'Mango\\Controller\\FrontController' => __DIR__ . '/../..' . '/app/Mango/Controller/FrontController.php',
-        'Mango\\Model\\Users' => __DIR__ . '/../..' . '/app/Mango/Model/Users.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
@@ -38,7 +25,6 @@ class ComposerStaticInitbdaf887cd2bac439364cbfc7411c07c5
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInitbdaf887cd2bac439364cbfc7411c07c5::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInitbdaf887cd2bac439364cbfc7411c07c5::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInitbdaf887cd2bac439364cbfc7411c07c5::$classMap;
 
         }, null, ClassLoader::class);
     }

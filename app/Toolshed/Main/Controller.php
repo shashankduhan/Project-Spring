@@ -1,7 +1,7 @@
-<?php namespace Mango\Main;
+<?php namespace Toolshed\Main;
 
-use Mango\Model\Connection as Connection;
-use Mango\Main\ErrorException as ErrorException;
+use Toolshed\Model\Connection as Connection;
+use Toolshed\Main\ErrorException as ErrorException;
 
 class Controller
 {
@@ -36,10 +36,10 @@ class Controller
 
   public function view($view, $data = [])
   {
-    if(file_exists("../app/Mango/View/$view.php"))
+    if(file_exists("../app/Toolshed/View/$view.php"))
     {
 
-      require_once "../app/Mango/View/".$view.".php";
+      require_once "../app/Toolshed/View/".$view.".php";
 
 
     }else

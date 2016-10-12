@@ -63,7 +63,9 @@
       <input type="text" name="name" value="" placeholder="Full Name" id="name"><br><br>
       <input type="email" name="email" value="" placeholder="Email" id="email"><br>
       <input type="password" name="password" value="" placeholder="Password" id="password"><br>
+      <input type="password" name="password_repeat" value="" placeholder="Repeat Password"><br>
       <input type="submit" name="Register" value="Register" id="register">
+
       <label id="indicator" style="display:none;">Registering...</label>
     </form>
   </body>

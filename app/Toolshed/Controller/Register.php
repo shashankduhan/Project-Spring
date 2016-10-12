@@ -1,10 +1,10 @@
 <?php
 
 
-use Mango\Main\Controller as Controller;
-use Mango\Model\Connection as Connection;
-use Mango\Model\Register as Registration;
-use Mango\Main\ErrorException as ErrorException;
+use Toolshed\Main\Controller as Controller;
+use Toolshed\Model\Connection as Connection;
+use Toolshed\Model\Register as Registration;
+use Toolshed\Main\ErrorException as ErrorException;
 
 class Register extends Controller
 {
@@ -71,7 +71,7 @@ class Register extends Controller
         //User registered..
         $_SESSION['userId'] = $newUserId;
         $this->loginStatus = true;
-        setcookie("userid",$newUserId,time()+(80*3600), "./");
+        
         $result = "{status : 1, userId : $_SESSION[userId]}";
         $this->view("raw", $result);
 

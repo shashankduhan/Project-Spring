@@ -1,6 +1,6 @@
 <?php
 
-namespace Mango\Main;
+namespace Toolshed\Main;
 
 
 //This is our main Application function that handles all front controller routing
@@ -55,7 +55,7 @@ class Router
   {
 
     $indexCall = (count($pathDepth) > 0 ? false : true);
-    $indexExists = file_exists("../app/Mango/Controller/welcome.php") ? true : false;
+    $indexExists = file_exists("../app/Toolshed/Controller/welcome.php") ? true : false;
 
     //Lets make requests case resistant
     $this->controller = ucfirst(strtolower($this->controller));
@@ -65,7 +65,7 @@ class Router
     }
 
     //Check if file ans class exists
-    $controllerExists = file_exists("../app/Mango/Controller/".$this->controller.".php") ? true : false;
+    $controllerExists = file_exists("../app/Toolshed/Controller/".$this->controller.".php") ? true : false;
     //$ctrlClassExist = class_exists($this->controller) ? true : false;
     //echo "-".$controllerExists." - ".$ctrlClassExist."-";
 
@@ -100,7 +100,7 @@ class Router
 
     //Add our required controller class
     //Already checked if exists or not
-    require_once "../app/Mango/Controller/".$this->controller.".php";
+    require_once "../app/Toolshed/Controller/".$this->controller.".php";
 
     $this->controller = new $this->controller();
 

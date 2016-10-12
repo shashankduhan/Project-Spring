@@ -1,6 +1,6 @@
 <?php
 
-namespace Mango\Model;
+namespace Toolshed\Model;
 
 class Login extends Model
 {
@@ -13,7 +13,7 @@ class Login extends Model
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    $query = "SELECT `id`, `password` FROM users WHERE `email` = '$email';";
+    $query = "SELECT `id`, `password` FROM customers WHERE `email` = '$email';";
 
     $result = $this->fetch($dbRef, $query);
 

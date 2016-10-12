@@ -1,6 +1,6 @@
 <?php
 
-namespace Mango\Main;
+namespace Toolshed\Main;
 
 class ErrorException extends \Exception
 {
@@ -21,6 +21,6 @@ class ErrorException extends \Exception
     public function showError()
     {
 
-      require_once "../app/Mango/View/Error.php";
+      require_once "../app/Toolshed/View/Error.php";
     }
 }

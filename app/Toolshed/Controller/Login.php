@@ -1,9 +1,9 @@
 <?php
 
-use Mango\Main\Controller as Controller;
-use Mango\Model\Connection as Connection;
-use Mango\Model\Login as Logger;
-use Mango\Main\ErrorException as ErrorException;
+use Toolshed\Main\Controller as Controller;
+use Toolshed\Model\Connection as Connection;
+use Toolshed\Model\Login as Logger;
+use Toolshed\Main\ErrorException as ErrorException;
 
 class Login extends Controller
 {
@@ -62,7 +62,7 @@ class Login extends Controller
       {
         $_SESSION['userId'] = $userId;
         $this->loginStatus = true;
-        setcookie("userId",$userId,time()+(80*3600), "./");
+  
         $result = "{ status : 1 , userId : $userId}";
       }else
       {

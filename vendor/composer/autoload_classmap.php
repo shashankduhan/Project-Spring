@@ -6,6 +6,4 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Mango\\Controller\\FrontController' => $baseDir . '/app/Mango/Controller/FrontController.php',
-    'Mango\\Model\\Users' => $baseDir . '/app/Mango/Model/Users.php',
 );

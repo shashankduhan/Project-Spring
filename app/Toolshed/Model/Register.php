@@ -1,6 +1,6 @@
 <?php
 
-namespace Mango\Model;
+namespace Toolshed\Model;
 
 class Register extends Model
 {
@@ -19,7 +19,7 @@ class Register extends Model
     $options = [ 'cost' => 10];
     $password = password_hash($password, PASSWORD_BCRYPT, $options);
 
-    $query = "INSERT INTO `users` VALUES (NULL, '$name', '$password', '$email', '$time')";
+    $query = "INSERT INTO `customers` VALUES (NULL, '$name', '$password', '$email', '$time')";
 
     $result = $this->set($dbRef, $query);
     if($result)

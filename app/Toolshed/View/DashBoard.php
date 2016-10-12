@@ -13,9 +13,7 @@
       margin:4px;
       float:right;
       margin:25px;}
-      #newAccountCaller{
-        margin-left: -130px;
-      }
+      
 
     .newButton{
       background:#336699;
@@ -245,11 +243,11 @@
         //Load and apply changes to accounts table.
         //Give it a sleep time first.
         //sleep(1000).then(() => {
-          new dash.fetcher(dash.accountLoader);
+          //new dash.fetcher(dash.accountLoader);
         //});
 
         //populate account types available in this bank.
-        new dash.fetcher(dash.accountTypeLoader);
+        //new dash.fetcher(dash.accountTypeLoader);
 
         //New account form on submission event handler
         x('newAccountForm').onsubmit = function(){
@@ -266,25 +264,7 @@
     <p>
       Hello <?= $data[0]['name']; ?>
     </p>
-
-    <table align="center" id="accounts_table">
-      <tr>
-        <th>
-          Account ID
-        </th><th>
-          Type
-        </th><th>
-          Balance
-        </th><th>
-          Status
-        </th>
-      </tr>
-      <tr >
-        <td colspan="4" id="account_table_indicator" class="notice">
-          Fetching Accounts.....
-        </td>
-      </tr>
-    </table><br>
+<br>
     <a  id="newAccountCaller" class="newButton" onselectstart="return false;" onclick="new dash.curtainUp('newAccountForm');">Add New Account</a>
     <div id="newAccountForm" class="formBox">
       <p class="formHeader">

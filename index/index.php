@@ -1,7 +1,7 @@
 <?php
 
-use Mango\Main\Router as Application;
-use Mango\Main\ErrorException as ErrorException;
+use Toolshed\Main\Router as Application;
+use Toolshed\Main\ErrorException as ErrorException;
 
 //This is our autoloader file path | psr-4
 require_once '../app/start.php';

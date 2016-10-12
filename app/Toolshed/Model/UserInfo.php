@@ -1,6 +1,6 @@
 <?php
 
-namespace Mango\Model;
+namespace Toolshed\Model;
 
 class UserInfo extends Model
 {
@@ -13,7 +13,7 @@ class UserInfo extends Model
   {
     $this->dbRef = $dbRef;
     $this->userId = $_SESSION['userId'];
-    $query  = "SELECT `name` FROM users where `id` = $this->userId ;";
+    $query  = "SELECT `name` FROM `customers` where `id` = $this->userId ;";
 
     $this->userData = $this->fetch($this->dbRef, $query);
   }
